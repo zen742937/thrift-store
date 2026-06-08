@@ -12,10 +12,16 @@ function App() {
     <div>
       <h1>我的二手衣</h1>
 
-      {/* TODO 5：先測試一張——渲染「一個」 <ProductCard />，
-          把第一筆商品 PRODUCTS[0] 當 product 傳進去。
-          （這一步只是確認 import / 元件 / 資料三者有串起來，之後才用 map 渲染全部） */}
-      <ProductCard key={PRODUCTS[0].id} product={PRODUCTS[0]} />
+      {/* Day 31 TODO：把「只顯示一張」改成「用 map 顯示全部」
+          - 用 PRODUCTS.map(...) 把每一筆 product 渲染成一個 <ProductCard />
+          - 每個都要傳 key={product.id} 和 product={product}
+          （跟 Day 28 的 filtered.map 一模一樣，只是這裡先 map 全部 PRODUCTS） */}
+
+      {PRODUCTS.map(product =>{
+        return <ProductCard key={product.id} product={product}/>
+      })
+      }
+
 
     </div>
   );
