@@ -9,3 +9,6 @@ export const PRODUCTS = [
   { id: 5, name: "黑色條紋長袖",     price: 420,  category: "上衣", size: "M" },
   { id: 6, name: "工裝寬褲",         price: 750,  category: "褲子", size: "L" },
 ];
+
+// 分類清單（給篩選按鈕用）
+export const CATEGORIES = ["全部", "上衣", "外套", "褲子"];
