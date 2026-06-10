@@ -1,1 +1,55 @@
 /* 二手衣店面樣式 —— 設計階段（Day 33）再正式處理，先留空白 */
+:root {
+    --bg: #1c1a17;
+    --card: #26231f;
+    --text: #ece6dd;
+    --text-muted: #a39d92;
+    --accent: #e0a667;
+    --border: #34302a;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+.productWallGrid {
+    display: grid;
+    grid-template-columns:  repeat(3, 1fr);
+    gap: 20px;
+}
+
+.productCard {
+    background-color: var(--card);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.4);
+}
+
+.productPrice {
+    color: var(--accent);
+}
+
+.searchBox {
+    background-color: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 3px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+.categoriesBox {
+    display: flex;
+    justify-content: center;
+    gap:8px;
+    margin-bottom: 20px;
+}
+
+.categoriesButton {
+    background-color: var(--accent);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+}

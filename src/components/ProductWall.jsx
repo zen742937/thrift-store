@@ -28,18 +28,23 @@ function ProductWall() {
       <h1>我的二手衣</h1>
 
       {/* TODO 3：搜尋框（受控 input，綁 keyword） */}
-      <input value={keyword} onChange={e => setKeyword(e.target.value)} />
+      <input className="searchBox" value={keyword} onChange={e => setKeyword(e.target.value)} />
 
       {/* TODO 4：分類按鈕（CATEGORIES.map 成 <button>，點了 setSelectedCategory(category)，記得 key） */}
+      <div className="categoriesBox">
+
       {CATEGORIES.map(category => {
-        return <button key={category} onClick={() => setSelectedCategory(category)}>{category}</button>
+        return <button className="categoriesButton" key={category} onClick={() => setSelectedCategory(category)}>{category}</button>
       })}
+      </div>
 
       {/* TODO 5：商品列表（filtered.map 渲染 <ProductCard key={...} product={...} />） */}
+      <div className='productWallGrid'>
       {filtered.map(product => {
         return <ProductCard key={product.id} product={product}/>
       })
       }
+      </div>
 
       {/* TODO 6（加分）：filtered.length === 0 時用 && 顯示「找不到符合的商品」 */}
       {filtered.length === 0 && <p>找不到符合的商品</p>}

@@ -6,9 +6,9 @@ function ProductCard({ product }) {
   // TODO 1：return 一個 <div>，顯示 product 的 name / 價格（NT$）/ 分類 / 尺寸
   //         （跟 Day 28 一模一樣，直接照寫）
   return (
-    <div>
+    <div className="productCard">
       <p>{product.name}</p>
-      <p>價格：NT${product.price}</p>
+      <p className="productPrice">價格：NT${product.price}</p>
       <p>分類：{product.category}</p>
       <p>尺寸：{product.size}</p>
     </div>
