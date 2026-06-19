@@ -26,6 +26,23 @@ body {
     box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.4);
 }
 
+/* Day 34 TODO C：把商品圖調好看。新增一條 .productImage { ... } 規則，會用到這幾個屬性：
+   - width: 100%;            → 圖寬撐滿卡片（卡片有 padding，所以不會貼邊）
+   - aspect-ratio: 1 / 1;    → 不管原圖多大，固定成正方形（也可試 3 / 4 變直式）
+   - object-fit: cover;      → 圖片「填滿不變形」，多餘的裁掉（拿掉這行你會看到圖被壓扁，可以試試）
+   - border-radius: 8px;     → 圖片四角也圓一點，跟卡片呼應
+   - margin-bottom: 12px;    → 圖跟下面文字之間留點空隙
+   自己拼成一條規則寫在下面，存檔看瀏覽器效果 */
+
+.productImage {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+
 .productPrice {
     color: var(--accent);
 }
