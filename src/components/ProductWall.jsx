@@ -6,17 +6,14 @@ import { useState } from 'react'
 import { PRODUCTS, CATEGORIES } from '../products.js'   // 兩個具名匯出，一起用 { } 拿
 import ProductCard from './ProductCard.jsx'
 
-function ProductWall() {
-  // TODO 1：兩個 state（同 Day 28）
-  //   - keyword：搜尋字，初始 ""
-  //   - selectedCategory：選的分類，初始 "全部"
+// Day 35 TODO F：ProductWall 現在要當「中轉站」——
+//   它自己不用 addToCart，但要從 App 接住、再往下傳給 ProductCard。
+//   把下面這行的 () 改成接 prop：function ProductWall({ addToCart }) {
+function ProductWall({ addToCart }) {
+
   const [keyword,setKeyword] = useState("")
   const [selectedCategory,setSelectedCategory] = useState("全部")
 
-  // TODO 2：算 filtered（同 Day 28）——同時符合「分類」+「搜尋」
-  //   分類：selectedCategory === "全部" 就全留，否則只留 product.category === selectedCategory
-  //   搜尋：product.name.includes(keyword)
-  //   一個 filter 裡用 && 串兩條件
   const filtered = PRODUCTS.filter(product => {
     const 分類符合 = selectedCategory === "全部" || product.category === selectedCategory;
     const 搜尋符合 = product.name.includes(keyword);
@@ -39,9 +36,11 @@ function ProductWall() {
       </div>
 
       {/* TODO 5：商品列表（filtered.map 渲染 <ProductCard key={...} product={...} />） */}
+      {/* Day 35 TODO G：每張卡片也要拿到 addToCart，多傳一個 prop 下去
+          把 <ProductCard ... /> 再加上 addToCart={addToCart} */}
       <div className='productWallGrid'>
       {filtered.map(product => {
-        return <ProductCard key={product.id} product={product}/>
+        return <ProductCard key={product.id} product={product} addToCart={addToCart}/>
       })
       }
       </div>

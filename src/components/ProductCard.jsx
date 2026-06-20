@@ -2,7 +2,10 @@
 // 接 prop：product（一筆商品物件，有 name / price / category / size）
 // 這就是你 Day 28 寫過的 ProductCard，只是現在搬到「獨立檔案」。
 
-function ProductCard({ product }) {
+// Day 35 TODO H：卡片也要接住 addToCart（它從 App→ProductWall→這裡，傳了兩層）
+//   把下面改成 function ProductCard({ product, addToCart }) {
+//   （一個元件要收多個 prop，就在 { } 裡用逗號隔開）
+function ProductCard({ product,addToCart }) {
   return (
     <div className="productCard">
       {/* Day 34 TODO B：在商品名稱「上面」放一張圖
@@ -16,6 +19,15 @@ function ProductCard({ product }) {
       <p className="productPrice">價格：NT${product.price}</p>
       <p>分類：{product.category}</p>
       <p>尺寸：{product.size}</p>
+      <button onClick={() => addToCart(product)} className="addToCartButton">加入購物車</button>
+
+      {/* Day 35 TODO I：加一顆按鈕，點了就把「這件商品」加入購物車
+          - <button onClick={...}>加入購物車</button>
+          - ⚠️ onClick 要綁「箭頭函式」：onClick={() => addToCart(product)}
+            想一下為什麼不能直接寫 onClick={addToCart(product)}？
+            （提示：回想 Day 32 分類按鈕你也是用 () => 包起來的，差別在「現在執行」vs「點了才執行」）
+          - className 可給 "addToCartButton"（樣式之後再美化，先求能動） */}
+
     </div>
   )
 
