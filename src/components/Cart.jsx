@@ -3,7 +3,7 @@
 
 // Day 35 TODO J：接住 cart 這個 prop
 //   把下面改成 function Cart({ cart }) {
-function Cart({ cart }) {
+function Cart({ cart,clearCart }) {
 
   // Day 35 TODO K（加分）：算購物車總金額 total
   //   要把 cart 裡每件商品的 price 全部加起來。
@@ -29,10 +29,12 @@ function Cart({ cart }) {
       {/* Day 35 TODO N：顯示總金額
           例如 <p>總計：NT${total}</p> */}
       <p>總計:NT${total}</p>
+      {(cart.length !== 0) && <button onClick={()=> clearCart()}>清空購物車</button>}
+      
 
 
       {/* Day 35 TODO O（加分）：購物車是空的時候（cart.length === 0）顯示「購物車是空的」 */}
-      {(cart.length===0) && <p>購物車是空的</p>}
+      {(cart.length === 0) && <p>購物車是空的</p>}
 
     </div>
   );

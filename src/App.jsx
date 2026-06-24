@@ -27,6 +27,10 @@ function App() {
     setCart([...cart,product]);
   }
 
+  function clearCart(){
+    setCart([]);
+  }
+
 
   return (
     <div>
@@ -36,7 +40,7 @@ function App() {
 
       {/* Day 35 TODO E：放購物車元件，並把 cart 傳進去
           寫成 <Cart cart={cart} /> */}
-      <Cart cart={cart}/>
+      <Cart cart={cart} clearCart={clearCart}/>
 
     </div>
   );
