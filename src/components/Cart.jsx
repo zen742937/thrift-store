@@ -3,7 +3,7 @@
 
 // Day 35 TODO J：接住 cart 這個 prop
 //   把下面改成 function Cart({ cart }) {
-function Cart({ cart,clearCart }) {
+function Cart({ cart,clearCart,removeFromCart }) {
 
   // Day 35 TODO K（加分）：算購物車總金額 total
   //   要把 cart 裡每件商品的 price 全部加起來。
@@ -24,7 +24,9 @@ function Cart({ cart,clearCart }) {
           - 記得每個 map 出來的元素要加 key
           - ⚠️ 同一件商品可能被加入多次，用 item.id 當 key 會重複出問題；
             這裡先用第二個參數「索引 index」當 key：cart.map((item, index) => ... key={index}) */}
-      {cart.map((item,index) => <p key={index}>{item.name} - NT{item.price}</p>)}
+      {cart.map((item,index) => 
+          <p key={index}>{item.name} - NT{item.price}<button onClick={()=>removeFromCart(index)}>清除</button></p>
+      )}
 
       {/* Day 35 TODO N：顯示總金額
           例如 <p>總計：NT${total}</p> */}

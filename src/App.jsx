@@ -27,6 +27,13 @@ function App() {
     setCart([...cart,product]);
   }
 
+  function removeFromCart(targetIndex){
+    const newCart = cart.filter((item,index) => {
+      return index !== targetIndex;
+    })
+    setCart(newCart);
+  }
+
   function clearCart(){
     setCart([]);
   }
@@ -40,7 +47,7 @@ function App() {
 
       {/* Day 35 TODO E：放購物車元件，並把 cart 傳進去
           寫成 <Cart cart={cart} /> */}
-      <Cart cart={cart} clearCart={clearCart}/>
+      <Cart cart={cart} clearCart={clearCart} removeFromCart={removeFromCart}/>
 
     </div>
   );
