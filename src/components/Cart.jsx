@@ -12,6 +12,15 @@ function Cart({ cart,clearCart,removeFromCart }) {
   //   ← 先用你看得懂的方法寫出來就好
   let total = 0;
   cart.forEach(item => { total += item.price});
+  const grouped = [];
+  for (const item of cart){
+    const found = grouped.find(g => g.name === item.name)
+    if(found){
+    found.quantity ++;
+    } else {
+      grouped.push({name:item.name, price:item.price, quantity:1})
+    }
+  }
 
   return (
     <div className="cart">
@@ -24,8 +33,10 @@ function Cart({ cart,clearCart,removeFromCart }) {
           - 記得每個 map 出來的元素要加 key
           - ⚠️ 同一件商品可能被加入多次，用 item.id 當 key 會重複出問題；
             這裡先用第二個參數「索引 index」當 key：cart.map((item, index) => ... key={index}) */}
-      {cart.map((item,index) => 
-          <p key={index}>{item.name} - NT{item.price}<button onClick={()=>removeFromCart(index)}>清除</button></p>
+      {grouped.map((item,index) => 
+          <p key={item.name}>{item.name} x {item.quantity} - NT${item.price * item.quantity} </p>
+
+          
       )}
 
       {/* Day 35 TODO N：顯示總金額
