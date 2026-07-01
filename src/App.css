@@ -1,12 +1,10 @@
-/* 二手衣店面樣式 —— 設計階段（Day 33）再正式處理，先留空白 */
+
 :root {
-    --bg: #1c1a17;
-    --card: #26231f;
-    --text: #ece6dd;
-    --text-muted: #a39d92;
-    --accent: #e0a667;
-    --border: #34302a;
-}
+    --bg: #ffffff;        /* 純白底 */
+    --text: #111111;      /* 近黑（別用純黑 #000，純黑太硬，#111 更高級） */
+    --text-muted: #888888;/* 次要文字灰 */
+    --border: #e5e5e5;    /* 極淡的分隔線灰 */
+  }
 
 body {
     background-color: var(--bg);
@@ -20,10 +18,10 @@ body {
 }
 
 .productCard {
-    background-color: var(--card);
+    background-color: var(--bg);
     padding: 20px;
+    border:1px solid var(--border);
     border-radius: 10px;
-    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.4);
 }
 
 /* Day 34 TODO C：把商品圖調好看。新增一條 .productImage { ... } 規則，會用到這幾個屬性：
@@ -44,11 +42,10 @@ body {
 
 
 .productPrice {
-    color: var(--accent);
+    color: var(--text);
 }
 
 .searchBox {
-    background-color: var(--card);
     color: var(--text);
     border: 1px solid var(--border);
     padding: 3px;
@@ -63,7 +60,7 @@ body {
 }
 
 .categoriesButton {
-    background-color: var(--accent);
+    background-color: var(--bg);
     color: var(--text);
     border: 1px solid var(--border);
     padding: 3px;
