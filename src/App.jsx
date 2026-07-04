@@ -38,7 +38,7 @@ function App() {
 
 
   return (
-    <div>
+    <div className="app">
       {/* Day 35 TODO D：把 addToCart 傳給 ProductWall（商品牆的按鈕要用它）
           現在是空的 <ProductWall />，改成 <ProductWall addToCart={addToCart} /> */}
       <ProductWall addToCart={addToCart}/>
