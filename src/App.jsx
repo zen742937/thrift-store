@@ -2,6 +2,8 @@ import './App.css'
 import { useState } from 'react'
 import ProductWall from './components/ProductWall.jsx'
 import Cart from './components/Cart.jsx'
+import { useEffect } from 'react'
+import { supabase } from './supabaseClient'
 // Day 35 TODO A：import 新元件 Cart（從 './components/Cart.jsx'）
 //   提示：它跟 ProductWall 一樣是 export default，import 不用 { }
 //   ← 在這行下面自己寫一行 import
@@ -36,6 +38,14 @@ function App() {
     setCart([]);
   }
 
+  useEffect(() => {
+    async function loadProducts() {
+      const { data, error } = await supabase.from('products').select('*')
+      console.log('商品資料：', data)
+      console.log('錯誤：', error)
+    }
+    loadProducts()
+  }, [])
 
   return (
     <div className="app">
