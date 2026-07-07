@@ -3,18 +3,18 @@
 
 // ── imports（幫你寫好，注意 useState 從 react 來、其餘從專案檔來）──
 import { useState } from 'react'
-import { PRODUCTS, CATEGORIES } from '../products.js'   // 兩個具名匯出，一起用 { } 拿
+import { CATEGORIES } from '../products.js'
 import ProductCard from './ProductCard.jsx'
 
 // Day 35 TODO F：ProductWall 現在要當「中轉站」——
 //   它自己不用 addToCart，但要從 App 接住、再往下傳給 ProductCard。
 //   把下面這行的 () 改成接 prop：function ProductWall({ addToCart }) {
-function ProductWall({ addToCart }) {
+function ProductWall({ addToCart,products }) {
 
   const [keyword,setKeyword] = useState("")
   const [selectedCategory,setSelectedCategory] = useState("全部")
 
-  const filtered = PRODUCTS.filter(product => {
+  const filtered = products.filter(product => {
     const 分類符合 = selectedCategory === "全部" || product.category === selectedCategory;
     const 搜尋符合 = product.name.includes(keyword);
     return 分類符合 && 搜尋符合;
