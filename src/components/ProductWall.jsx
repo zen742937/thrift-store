@@ -3,7 +3,6 @@
 
 // ── imports（幫你寫好，注意 useState 從 react 來、其餘從專案檔來）──
 import { useState } from 'react'
-import { CATEGORIES } from '../products.js'
 import ProductCard from './ProductCard.jsx'
 
 // Day 35 TODO F：ProductWall 現在要當「中轉站」——
@@ -12,13 +11,15 @@ import ProductCard from './ProductCard.jsx'
 function ProductWall({ addToCart,products }) {
 
   const [keyword,setKeyword] = useState("")
-  const [selectedCategory,setSelectedCategory] = useState("全部")
+  const [selectedCategory,setSelectedCategory] = useState("All")
 
   const filtered = products.filter(product => {
-    const 分類符合 = selectedCategory === "全部" || product.category === selectedCategory;
+    const 分類符合 = selectedCategory === "All" || product.category === selectedCategory;
     const 搜尋符合 = product.name.includes(keyword);
     return 分類符合 && 搜尋符合;
   })
+
+  const categories = ["All",...new Set(products.map(product => product.category))]
 
   return (
     <div>
@@ -30,7 +31,7 @@ function ProductWall({ addToCart,products }) {
       {/* TODO 4：分類按鈕（CATEGORIES.map 成 <button>，點了 setSelectedCategory(category)，記得 key） */}
       <div className="categoriesBox">
 
-      {CATEGORIES.map(category => {
+      {categories.map(category => {
         return <button className="categoriesButton" key={category} onClick={() => setSelectedCategory(category)}>{category}</button>
       })}
       </div>
