@@ -15,7 +15,8 @@ function App() {
   //   - 初始值是「空陣列」 []（一開始購物車是空的）
   //   const [cart, setCart] = useState(...)   ← 你寫
   const [cart,setCart] = useState([]);
-  const [products,setProducts] = useState([])
+  const [products,setProducts] = useState([]);
+  const [loading,setLoading] = useState(true);
 
 
   // Day 35 TODO C：加入購物車的函式 addToCart(product)
@@ -41,8 +42,9 @@ function App() {
 
   useEffect(() => {
     async function loadProducts() {
-      const { data } = await supabase.from('products').select('*')
-      setProducts(data)
+      const { data } = await supabase.from('products').select('*');
+      setProducts(data);
+      setLoading(false);
     }
     loadProducts()
   }, [])
@@ -51,7 +53,7 @@ function App() {
     <div className="app">
       {/* Day 35 TODO D：把 addToCart 傳給 ProductWall（商品牆的按鈕要用它）
           現在是空的 <ProductWall />，改成 <ProductWall addToCart={addToCart} /> */}
-      <ProductWall addToCart={addToCart} products={products}/>
+      <ProductWall addToCart={addToCart} products={products} loading={loading}/>
 
       {/* Day 35 TODO E：放購物車元件，並把 cart 傳進去
           寫成 <Cart cart={cart} /> */}

@@ -8,7 +8,7 @@ import ProductCard from './ProductCard.jsx'
 // Day 35 TODO F：ProductWall 現在要當「中轉站」——
 //   它自己不用 addToCart，但要從 App 接住、再往下傳給 ProductCard。
 //   把下面這行的 () 改成接 prop：function ProductWall({ addToCart }) {
-function ProductWall({ addToCart,products }) {
+function ProductWall({ addToCart,products,loading }) {
 
   const [keyword,setKeyword] = useState("")
   const [selectedCategory,setSelectedCategory] = useState("All")
@@ -47,7 +47,8 @@ function ProductWall({ addToCart,products }) {
       </div>
 
       {/* TODO 6（加分）：filtered.length === 0 時用 && 顯示「找不到符合的商品」 */}
-      {filtered.length === 0 && <p>找不到符合的商品</p>}
+      {loading && <p>載入中</p>}
+      {(!loading && filtered.length === 0) && <p>找不到符合的商品</p>}
     </div>
   );
 }
