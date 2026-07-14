@@ -84,3 +84,40 @@ h1 {
 .addToCartButton {
     
 }
+/* ── 商品詳細頁：圖片藝廊 ── */
+.detailMainImage {
+    display: block;
+    width: 100%;
+    max-width: 520px;      /* 大圖最寬到這，不會再撐爆版面 */
+    aspect-ratio: 1 / 1;   /* 直式比例，衣服/人像照適合 */
+    object-fit: cover;     /* 填滿不變形，多餘的裁掉 */
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.detailThumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.detailThumb {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    opacity: 0.55;
+    transition: opacity 0.2s, border-color 0.2s;
+}
+
+.detailThumb:hover {
+    opacity: 1;
+}
+
+.detailThumb.isActive {
+    opacity: 1;
+    border-color: var(--text);   /* 目前選中那張：深色框標示 */
+}

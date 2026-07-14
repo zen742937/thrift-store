@@ -14,6 +14,7 @@ function ProductDetail(){
     const { id } = useParams()
     const [product, setProduct] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [selectedIndex, setSelectedIndex] = useState(0)
     
     useEffect(() => {
         async function loadProduct(){
@@ -31,8 +32,23 @@ function ProductDetail(){
         <div>
             <Link to="/">back</Link> 
             <p>分類: {product.category}</p>      
-            <img src={product.image} alt={product.name} />
-            <p>{product.brand} {product.name}</p>           
+            <img
+              className="detailMainImage"
+              src={product.images[selectedIndex]}
+              alt={product.name}
+            />
+            <div className="detailThumbs">
+                {product.images.map((url, index) => (
+                    <img
+                    className={index === selectedIndex ? "detailThumb isActive" : "detailThumb"}
+                    key={index}
+                    src={url}
+                    onClick={() => setSelectedIndex(index)}
+                    alt=""
+                    />
+                ))}
+            </div>
+            <p>{product.brand} | {product.name}</p>           
             <p>尺寸: {product.size}</p>
             <p>商品狀況: {product.condition} - {CONDITION_TEXT[product.condition]}</p>
             <p>NT${product.price}</p>
@@ -40,5 +56,7 @@ function ProductDetail(){
         </div>
     )
 }
+
+
 
 export default ProductDetail
