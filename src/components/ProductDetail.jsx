@@ -2,6 +2,14 @@ import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { supabase } from '../supabaseClient'
 
+const CONDITION_TEXT = {
+    S: "全新未使用",
+    A: "近新品(幾乎無瑕疵或使用痕跡)",
+    B: "有使用痕跡",
+    C: "有使用痕跡，少量瑕疵",
+    D: "有使用痕跡及明顯瑕疵",
+}
+
 function ProductDetail(){
     const { id } = useParams()
     const [product, setProduct] = useState(null)
@@ -21,11 +29,14 @@ function ProductDetail(){
 
     return (
         <div>
-            <Link to="/">back</Link>       
+            <Link to="/">back</Link> 
+            <p>分類: {product.category}</p>      
             <img src={product.image} alt={product.name} />
-            <p>{product.brand}</p>           
-            <h1>{product.name}</h1>
+            <p>{product.brand} {product.name}</p>           
+            <p>尺寸: {product.size}</p>
+            <p>商品狀況: {product.condition} - {CONDITION_TEXT[product.condition]}</p>
             <p>NT${product.price}</p>
+            
         </div>
     )
 }
