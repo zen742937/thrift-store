@@ -29,30 +29,38 @@ function ProductDetail(){
     if (!product) return <p>找不到這件商品</p>
 
     return (
-        <div>
-            <Link to="/">back</Link> 
-            <p>分類: {product.category}</p>      
-            <img
-              className="detailMainImage"
-              src={product.images[selectedIndex]}
-              alt={product.name}
-            />
-            <div className="detailThumbs">
-                {product.images.map((url, index) => (
-                    <img
-                    className={index === selectedIndex ? "detailThumb isActive" : "detailThumb"}
-                    key={index}
-                    src={url}
-                    onClick={() => setSelectedIndex(index)}
-                    alt=""
-                    />
-                ))}
-            </div>
-            <p>{product.brand} | {product.name}</p>           
-            <p>尺寸: {product.size}</p>
-            <p>商品狀況: {product.condition} - {CONDITION_TEXT[product.condition]}</p>
-            <p>NT${product.price}</p>
+        <div className="detailPage">
+            <Link to="/" className="backLink">← back to home page</Link>
             
+            <div className="detailLayout">
+                <div className="detailGallery">
+                    <img
+                    className="detailMainImage"
+                    src={product.images[selectedIndex]}
+                    alt={product.name}
+                    />
+                    <div className="detailThumbs">
+                        {product.images.map((url, index) => (
+                            <img
+                            className={index === selectedIndex ? "detailThumb isActive" : "detailThumb"}
+                            key={index}
+                            src={url}
+                            onClick={() => setSelectedIndex(index)}
+                            alt=""
+                            />
+                        ))}
+                    </div>
+                </div>
+
+                <div className="detailInfo">
+                    <h2 className="detailBrand">{product.brand}</h2> 
+                    <h1 className="detailName">{product.name}</h1>          
+                    <p>分類: {product.category}</p>
+                    <p className="detailSize">尺寸: {product.size}</p>
+                    <p className="detailCondition">商品狀況: {product.condition} - {CONDITION_TEXT[product.condition]}</p>
+                    <p className="detailPrice">NT${product.price}</p>
+                </div>
+            </div>
         </div>
     )
 }

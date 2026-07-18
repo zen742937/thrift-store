@@ -81,7 +81,7 @@ h1 {
 .addToCartButton {
     
 }
-/* ── 商品詳細頁：圖片藝廊 ── */
+
 .detailMainImage {
     display: block;
     width: 100%;
@@ -117,4 +117,47 @@ h1 {
 .detailThumb.isActive {
     opacity: 1;
     border-color: var(--text);   /* 目前選中那張：深色框標示 */
+}
+
+.detailPage {
+    text-align: left;
+}
+
+.detailLayout {
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+}
+
+.detailGallery {
+    flex: 1.2;
+}
+
+.detailInfo {
+    flex: 1;
+}
+
+.detailBrand {
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;     /* 字距拉寬，英文品牌大寫+寬字距超有質感 */
+    text-transform: uppercase;  /* 轉大寫（對英文有效，中文不影響） */
+    color: var(--text-muted);   /* 灰色，退到背景 */
+    margin-bottom: 0px;
+}
+
+.detailName {
+    font-size: 1.75rem;        /* 蓋掉全域 h1 的 2.5rem */
+    font-weight: 600;
+    letter-spacing: -0.01em;   /* 負字距收緊，大標更精緻 */
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.detailInfo {
+    text-align: left;
+}
+
+.backLink {
+    color: inherit;
+    text-decoration: none;
 }
