@@ -189,3 +189,17 @@ h1 {
     padding-top: 24px;
     border-top: 1px solid var(--border);   /* 拉一條線，跟上面商品資訊分區 */
 }
+
+.detailSize {
+    font-size: 0.9rem;
+    color: var(--text-muted);   /* 變灰，退到背景 */
+}
+
+.detailCondition {
+    display: inline-block;              /* 關鍵：框只包住文字、不佔整行 */
+    border: 1px solid var(--text);      /* 深色框，比較醒目 */
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 0.85rem;
+    margin-top: 12px;
+}
