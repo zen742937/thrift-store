@@ -161,3 +161,31 @@ h1 {
     color: inherit;
     text-decoration: none;
 }
+
+.detailPriceBox {
+    display: flex;
+    align-items: baseline;   
+    gap: 12px;
+    margin: 20px 0;
+}
+.detailPrice {
+    font-size: 1.6rem;
+    font-weight: 700;         /* 售價最大最粗 */
+}
+.detailOriginalPrice {
+    text-decoration: line-through;   /* ← 劃掉原價的關鍵 */
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+.detailDiscount {
+    font-size: 0.9rem;
+    font-weight: 700;         
+}
+
+.detailDescription {
+    white-space: pre-line;                 /* 保留你在 Supabase 按的換行 */
+    line-height: 1.7;                      /* 行高鬆一點好讀 */
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);   /* 拉一條線，跟上面商品資訊分區 */
+}

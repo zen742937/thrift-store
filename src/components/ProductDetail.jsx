@@ -28,6 +28,8 @@ function ProductDetail(){
     if (loading) return <p>Loading…</p>
     if (!product) return <p>找不到這件商品</p>
 
+    const discount = Math.round((1 - product.price / product.original_price) * 100 )
+
     return (
         <div className="detailPage">
             <Link to="/" className="backLink">← back to home page</Link>
@@ -54,11 +56,18 @@ function ProductDetail(){
 
                 <div className="detailInfo">
                     <h2 className="detailBrand">{product.brand}</h2> 
-                    <h1 className="detailName">{product.name}</h1>          
-                    <p>分類: {product.category}</p>
-                    <p className="detailSize">尺寸: {product.size}</p>
-                    <p className="detailCondition">商品狀況: {product.condition} - {CONDITION_TEXT[product.condition]}</p>
-                    <p className="detailPrice">NT${product.price}</p>
+                    <h1 className="detailName">{product.name}</h1>    
+                    <div className="detailPriceBox">
+                        <span className="detailPrice">NT${product.price.toLocaleString()}</span>
+                        {product.original_price && <>
+                            <span className="detailOriginalPrice">官網售價 NT${product.original_price.toLocaleString()}</span>
+                            <span className="detailDiscount">{discount}% off</span>
+                        </>}    
+                    </div>
+                    <p className="detailSize">Size: {product.size}</p>
+                    <p className="detailCondition">Condition: {product.condition} - {CONDITION_TEXT[product.condition]}</p>
+                    <p className="detailDescription">{product.description}</p>
+                    
                 </div>
             </div>
         </div>
