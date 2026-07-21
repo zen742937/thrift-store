@@ -203,3 +203,18 @@ h1 {
     font-size: 0.85rem;
     margin-top: 12px;
 }
+
+.navBar {
+    display: flex;
+    justify-content: space-between;   /* 關鍵：一個推到最左、一個推到最右 */
+    align-items: center;              /* 垂直置中對齊，logo 跟 Cart 同一條水平線 */
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--border);   /* 底線，跟下面內容分區 */
+}
+
+.navLogo {
+    height: 32px;    /* 只鎖高度 */
+    width: auto;     /* 寬度自動照比例，才不會壓扁 */
+    display: block;
+}

@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import { supabase } from './supabaseClient'
 import { Routes,Route } from 'react-router-dom'
 import ProductDetail from './components/ProductDetail.jsx'
+import Navbar from './components/Navbar.jsx'
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
 
   return (
     <div className="app">
+      <Navbar />
       <Routes>
         <Route path="/" element={
         <>

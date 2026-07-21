@@ -23,7 +23,6 @@ function ProductWall({ addToCart,products,loading }) {
 
   return (
     <div>
-      <h1>我的二手衣</h1>
 
       {/* TODO 3：搜尋框（受控 input，綁 keyword） */}
       <input className="searchBox" value={keyword} onChange={e => setKeyword(e.target.value)} />
